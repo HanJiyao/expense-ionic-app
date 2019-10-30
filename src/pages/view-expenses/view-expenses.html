@@ -7,25 +7,21 @@
       View Expenses
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only solid>
+      <button ion-button icon-only solid (click)="goToSubmitExpense()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page2">
-  <ion-list id="viewExpenses-list2">
-    <ion-item color="none" id="viewExpenses-list-item5">
-      <ion-icon name="flag" item-left></ion-icon>
-      RWS Hotel $1250
+  <ion-item-sliding *ngFor = "let expenseItem of expenses">
+    <ion-item color="none">
+    <h1 (click)="goToExpenseDetail(expenseItem)">
+      {{expenseItem.merchant}} 
+    </h1>
+    <p> $ {{expenseItem.amount}} </p>
+    <p> {{expenseItem.category}} </p>
+   
     </ion-item>
-    <ion-item color="none" id="viewExpenses-list-item6">
-      <ion-icon name="checkmark" item-left></ion-icon>
-      Uber $20
-    </ion-item>
-    <ion-item color="none" id="viewExpenses-list-item7">
-      <ion-icon name="checkmark" item-left></ion-icon>
-      Hai Di Lao $130
-    </ion-item>
-  </ion-list>
+    </ion-item-sliding>
 </ion-content>

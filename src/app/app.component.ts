@@ -9,10 +9,7 @@ import { SubmitExpensePage } from '../pages/submit-expense/submit-expense';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
-
-
-import { HomePage } from '../pages/home/home';
-
+import {ExpenseDetailPage} from '../pages/expense-detail/expense-detail';
 
 
 @Component({
@@ -20,7 +17,7 @@ import { HomePage } from '../pages/home/home';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = HomePage;
+    rootPage:any = SubmitExpensePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
