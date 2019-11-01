@@ -9,7 +9,7 @@ import { SubmitExpensePage } from '../pages/submit-expense/submit-expense';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
-import {ExpenseDetailPage} from '../pages/expense-detail/expense-detail';
+import { ExpenseDetailPage } from '../pages/expense-detail/expense-detail';
 
 
 @Component({
@@ -45,5 +45,8 @@ export class MyApp {
   }goToProfile(params){
     if (!params) params = {};
     this.navCtrl.setRoot(ProfilePage);
+  }goToExpenseDetail(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(ExpenseDetailPage);
   }
 }

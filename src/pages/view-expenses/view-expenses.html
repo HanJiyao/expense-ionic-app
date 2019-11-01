@@ -15,8 +15,8 @@
 </ion-header>
 <ion-content padding id="page2">
   <ion-item-sliding *ngFor = "let expenseItem of expenses">
-    <ion-item color="none">
-    <h1 (click)="goToExpenseDetail(expenseItem)">
+    <ion-item color="none" (click)="goToExpenseDetail(expenseItem)">
+    <h1>
       {{expenseItem.merchant}} 
     </h1>
     <p> $ {{expenseItem.amount}} </p>
