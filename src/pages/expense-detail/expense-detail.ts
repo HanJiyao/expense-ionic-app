@@ -17,7 +17,6 @@ export class ExpenseDetailPage {
   expense: Expense; 
   /* tslint:disable:no-unused-variable */
   constructor(public navCtrl: NavController, private navParams: NavParams) {
-     console.log(self.navParams);
      let date = navParams.get('date');
      let amount = navParams.get('amount');
      let category = navParams.get('category');

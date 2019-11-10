@@ -16,12 +16,13 @@
 <ion-content padding id="page2">
   <ion-item-sliding *ngFor = "let expenseItem of expenses">
     <ion-item color="none" (click)="goToExpenseDetail(expenseItem)">
-    <h1>
-      {{expenseItem.merchant}} 
-    </h1>
-    <p> $ {{expenseItem.amount}} </p>
-    <p> {{expenseItem.category}} </p>
-   
+      <ion-icon *ngIf="expenseItem.merchant=='RWS Hotel'" name="flag" item-left></ion-icon>
+      <ion-icon *ngIf="expenseItem.merchant!='RWS Hotel'" name="checkmark" item-left></ion-icon>
+      <h1>
+        {{expenseItem.merchant}}  ${{expenseItem.amount}}
+      </h1>
+    <!-- <p> $ {{expenseItem.amount}} </p>
+    <p> {{expenseItem.category}} </p> -->
     </ion-item>
     </ion-item-sliding>
 </ion-content>
