@@ -14,13 +14,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page2">
+  <ion-searchbar></ion-searchbar>
   <ion-item-sliding *ngFor = "let expenseItem of expenses">
     <ion-item color="none" (click)="goToExpenseDetail(expenseItem)">
-      <h1>
-        {{expenseItem.merchant}}
-      </h1>
-      <p> $ {{expenseItem.amount}} </p>
-      <p> {{expenseItem.category}} </p>
+        <h1>
+          {{expenseItem.merchant}}
+        </h1>
+        <p> $ {{expenseItem.amount}} </p>
+        <p> {{expenseItem.category}} </p>
+      <ion-icon color="primary" name="heart-outline" item-right></ion-icon>
     </ion-item>
-    </ion-item-sliding>
+  </ion-item-sliding>
 </ion-content>

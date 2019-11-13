@@ -21,10 +21,12 @@ export class ViewExpensesPage implements OnInit {
     this.navCtrl.push(SubmitExpensePage);
   } 
   ngOnInit() {
-    this.expenses = this.expenseService.getExpenses();
-   }
-   goToExpenseDetail(params){
+    this.expenseService.getExpenses()
+    .subscribe(expenses => this.expenses = expenses);
+   
+  }   
+  goToExpenseDetail(params){
     if (!params) params = {};
     this.navCtrl.push(ExpenseDetailPage, params);
-   } 
+  } 
 }
