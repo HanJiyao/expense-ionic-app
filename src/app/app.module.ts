@@ -14,6 +14,7 @@ import { ExpenseDetailPage } from '../pages/expense-detail/expense-detail';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FormsModule } from '@angular/forms'; 
+import {ExpenseService} from '../providers/expense-service'; 
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FormsModule } from '@angular/forms';
   providers: [
     StatusBar,
     SplashScreen,
+    ExpenseService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
