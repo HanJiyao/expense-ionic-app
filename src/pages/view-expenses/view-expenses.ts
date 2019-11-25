@@ -22,7 +22,7 @@ export class ViewExpensesPage implements OnInit {
   } 
   ngOnInit() {
     this.expenseService.getExpenses()
-    .subscribe(expenses => this.expenses = expenses);
+    .subscribe(expenses => {this.expenses = expenses;});
    
   }   
   goToExpenseDetail(params){

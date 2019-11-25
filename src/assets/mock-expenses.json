@@ -1,0 +1,10 @@
+[
+    {"date": "1 Jan 18", "amount": 678, "category":"Travel", "merchant":"Singapore Airlines"},
+    {"date": "2 Feb 18", "amount": 20.80, "category":"Meals", "merchant":"MacDonald"},
+    {"date": "3 Mar 18", "amount": 1098, "category":"Accomodation", "merchant":"R Hotel"},
+    {"date": "4 Apr 18", "amount": 50, "category":"Others", "merchant":"Popular"},
+    {"date": "1 Jan 18", "amount": 888, "category":"Travel", "merchant":"Thai Airlines"},
+    {"date": "2 Feb 18", "amount": 18.9, "category":"Meals", "merchant":"KFC"},
+    {"date": "3 Mar 18", "amount": 988, "category":"Accomodation", "merchant":"W Hotel"},
+    {"date": "4 Apr 18", "amount": 10, "category":"Others", "merchant":"Daiso"}   
+]
