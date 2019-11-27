@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Google Map</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-toolbar color="default">
+      <ion-searchbar [(ngModel)]="search.input" (ionInput)="updateSearchResults()"
+      placeholder="Search for a place"></ion-searchbar>
+      </ion-toolbar>
+      <ion-list id="list" [hidden]="searchItemsList.length == 0">
+      <ion-item *ngFor="let item of searchItemsList" tappable
+      (click)="selectSearchResult(item)">
+      {{ item.description }}
+      </ion-item>
+    </ion-list>
+  <div #map id="map"></div>
+</ion-content>
