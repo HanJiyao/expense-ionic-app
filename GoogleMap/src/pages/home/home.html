@@ -1,22 +1,81 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Google Map</ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
+    <ion-navbar>
+      <ion-title>Display direction</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+      <ion-tabs>
+
+          <ion-tab tab="tab-schedule">
+            <ion-nav></ion-nav>
+          </ion-tab>
+        
+          <ion-tab tab="tab-speaker">
+            <ion-nav></ion-nav>
+          </ion-tab>
+        
+          <ion-tab tab="tab-map" component="page-map">
+            <ion-nav></ion-nav>
+          </ion-tab>
+        
+          <ion-tab tab="tab-about" component="page-about">
+            <ion-nav></ion-nav>
+          </ion-tab>
+        
+          <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="tab-schedule">
+              <ion-icon name="calendar"></ion-icon>
+              <ion-label>Schedule</ion-label>
+              <ion-badge>6</ion-badge>
+            </ion-tab-button>
+        
+            <ion-tab-button tab="tab-speaker">
+              <ion-icon name="contacts"></ion-icon>
+              <ion-label>Speakers</ion-label>
+            </ion-tab-button>
+        
+            <ion-tab-button tab="tab-map">
+              <ion-icon name="map"></ion-icon>
+              <ion-label>Map</ion-label>
+            </ion-tab-button>
+        
+            <ion-tab-button tab="tab-about">
+              <ion-icon name="information-circle"></ion-icon>
+              <ion-label>About</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
+        
+        </ion-tabs>
     <ion-toolbar color="default">
-      <ion-searchbar [(ngModel)]="search.input" (ionInput)="updateSearchResults()"
-      placeholder="Search for a place"></ion-searchbar>
-      </ion-toolbar>
-      <ion-list id="list" [hidden]="searchItemsList.length == 0">
-      <ion-item *ngFor="let item of searchItemsList" tappable
-      (click)="selectSearchResult(item)">
-      {{ item.description }}
+      <ion-searchbar [(ngModel)]="search.input" (ionInput)="updateFromResults()" placeholder="From"></ion-searchbar>
+     
+    </ion-toolbar>
+    
+    <ion-list id="list" [hidden]="searchItemsList.length == 0">
+      <ion-item *ngFor="let item of searchItemsList" tappable (click)="selectSearchResult(item)">
+        {{ item.description }}
       </ion-item>
     </ion-list>
-  <div #map id="map"></div>
-</ion-content>
+  
+    <ion-toolbar color="default">
+      <ion-searchbar [(ngModel)]="to.input" (ionInput)="updateToResults()" placeholder="To"></ion-searchbar>
+  
+    </ion-toolbar>
+    
+    <ion-list id="list" [hidden]="toItemsList.length == 0">
+      <ion-item *ngFor="let item of toItemsList" tappable (click)="selectToResult(item)">
+        {{ item.description }}
+      </ion-item>
+    </ion-list>
+  
+    
+    <ion-buttons end>
+      <button ion-button (click)="displayRoute()">Display Route</button>
+      <button ion-button (click)="clearMarkers()">Clear Markers</button>
+    </ion-buttons> 
+    <div #map id="map"></div> 
+  </ion-content>
