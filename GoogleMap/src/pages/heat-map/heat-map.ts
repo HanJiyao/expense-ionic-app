@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HeatService} from '../../providers/heatservice';
+import { Geolocation } from '@ionic-native/geolocation';
 declare var google;
 @Component({
  selector: 'page-heat-map',
@@ -11,7 +12,7 @@ export class HeatMapPage {
  map: any;
  results: string[];
 
- constructor(public navCtrl: NavController, public navParams: NavParams, private heatService:HeatService) {
+ constructor(public navCtrl: NavController, public navParams: NavParams, private heatService:HeatService, public geolocation: Geolocation) {
 
  }
  ionViewDidLoad() {
@@ -19,13 +20,12 @@ export class HeatMapPage {
   }
  
   initMap() {
- 
+    var center = new google.maps.LatLng(1.380090, 103.848915);
   let mapOptions = {
-  zoom: 2,
-  center: new google.maps.LatLng(2.8,-187.3),
-  //center: {lat: 37.775, lng: -122.434},
-  mapTypeId: 'terrain'
-  };
+    center: center,
+    zoom: 14,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
  
   //create basemap
   this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
