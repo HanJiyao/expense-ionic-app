@@ -2,13 +2,6 @@ import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
 import { Platform, NavController } from 'ionic-angular';
 import { loadModules } from 'esri-loader';
 
-/**
- * Generated class for the ArcgisPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @Component({
   selector: 'page-arcgis',
   templateUrl: 'arcgis.html',
@@ -26,8 +19,10 @@ export class ArcgisPage implements OnInit {
     // Load the mapping API modules
     return loadModules([
     'esri/Map',
-    'esri/views/MapView'
-    ]).then(([Map, MapView]) => {
+    'esri/views/MapView',
+    'esri/layers/FeatureLayer'
+
+    ]).then(([Map, MapView, FeatureLayer]) => {
    
     let map = new Map({
     basemap: 'hybrid'
@@ -38,11 +33,25 @@ export class ArcgisPage implements OnInit {
       center: [-12.287, -37.114],
       zoom: 12,
       map: map,
-     
-      }
+      extent: { // autocasts as new Extent()
+        xmin: -9177811,
+        ymin: 4247000,
+        xmax: -9176791,
+        ymax: 4247784,
+        spatialReference: 102100
+        }
       });
+      let featureLayer = new FeatureLayer({
+        url:
+       "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/Landscape_Trees/FeatureServer/0"
+       });
+       console.log("b4 feature");
+       map.add(featureLayer);
+        ///feature layer end
+        console.log("after feature");
       })
       .catch(err => {
       console.log("ArcGIS: " + err);
-      }
+      })
+    }
 }

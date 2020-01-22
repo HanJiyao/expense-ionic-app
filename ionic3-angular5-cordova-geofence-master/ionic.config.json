@@ -1,0 +1,7 @@
+{
+  "name": "ionic-geofence",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
