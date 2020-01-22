@@ -20,10 +20,10 @@ export class HeatMapPage {
   }
  
   initMap() {
-    var center = new google.maps.LatLng(1.380090, 103.848915);
+    var center = new google.maps.LatLng(1.300676, 103.855772);
   let mapOptions = {
     center: center,
-    zoom: 14,
+    zoom: 17,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
  
@@ -35,22 +35,17 @@ export class HeatMapPage {
   this.heatService.getLocalData().subscribe(results => {
   this.results= results;
   for (let i = 0; i < results.length; i++) {
-  let coords = results[i];
-  let latLng = new google.maps.LatLng(coords[1], coords[0]);
-  heatmapData.push(latLng);
- 
+    let coords = results[i];
+    let latLng = new google.maps.LatLng(coords[1], coords[0]);
+    heatmapData.push({location:latLng, weight:Math.random()});
   }
  
   });
-  //create heatmap
-  new google.maps.visualization.HeatmapLayer({
+ new google.maps.visualization.HeatmapLayer({
   data: heatmapData,
+  map: this.map,
   dissipating: false,
-  map: this.map
+  radius:10
   });
- 
  }
- heatMap(){
-  
-}
 }

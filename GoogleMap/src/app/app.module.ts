@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { HeatMapPage } from '../pages/heat-map/heat-map';
 import { HeatMapStreetPage } from '../pages/heat-map-street/heat-map-street';
 import { ExercisePlacesPage } from '../pages/exercise-places/exercise-places'
+import { ArcgisPage } from '../pages/arcgis/arcgis'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
     HeatMapPage,
     HeatMapStreetPage,
     ExercisePlacesPage,
+    ArcgisPage,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {HttpClientModule} from '@angular/common/http';
     HeatMapPage,
     HeatMapStreetPage,
     ExercisePlacesPage,
+    ArcgisPage,
   ],
   providers: [
     StatusBar,

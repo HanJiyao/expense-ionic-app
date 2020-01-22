@@ -9,7 +9,7 @@ export class HeatService {
  }
  getLocalData(){
  let coordsArray = [];
- return this.http.get('assets/imgs/earthquake.json')
+ return this.http.get('assets/imgs/gyms.json')
  .map(res => {
  let data1= (res as any).features;
  for (let i = 0; i < data1.length; i++) {

@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { HeatMapPage } from '../pages/heat-map/heat-map';
 import { HeatMapStreetPage } from '../pages/heat-map-street/heat-map-street'
 import { ExercisePlacesPage } from '../pages/exercise-places/exercise-places'
+import { ArcgisPage } from '../pages/arcgis/arcgis'
 
 @Component({
   templateUrl: 'app.html'
@@ -24,8 +25,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Get Direction', component: HomePage },
-      { title: 'Running Heat Map Street', component: HeatMapPage },
-      { title: 'Show Exercise Places', component: ExercisePlacesPage }
+      { title: 'Hot Exercise Places', component: HeatMapPage },
+      { title: 'All Gyms Singapore', component: ExercisePlacesPage },
+      { title: 'Running Routes', component: HeatMapStreetPage },
+      { title: 'ArcGis', component: ArcgisPage }
     ];
 
   }
