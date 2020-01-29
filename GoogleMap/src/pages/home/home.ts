@@ -61,10 +61,47 @@ loadMap() {
     });
 
     this.selectedMarker = marker;
-    
+    var locations = [
+      ['Coogee Beach', 1.377468, 103.851806],
+      ['Manly Beach', 1.375162, 103.852901],
+      ['Maroubra Beach', 1.379152, 103.851002]
+    ];
+    var locations2 = [
+      ['Bondi Beach', 1.380728, 103.851431],
+      ['Cronulla Beach', 1.3775526, 103.848373],
+    ];
+    new google.maps.Circle({
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FFFFFF',
+        fillOpacity: 0.35,
+        map: this.map,
+        center: latLng,
+        radius: 1000
+      });
+
+      var image = '/../assets/imgs/avatar-default-icon.png';
+
+    for (var i = 0; i < locations.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: this.map,
+        icon: image
+      });
+    }
+    var image2 = '/../assets/imgs/Webp.net-resizeimage.png'
+    for (var i = 0; i < locations2.length; i++) { 
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations2[i][1], locations2[i][2]),
+        map: this.map,
+        icon: image2
+      });
+    }
   }, (err) => {
     console.log(err);
   });
+  
 } //end loadMap
 addInfoWindow(marker, content){
   let infoWindow = new google.maps.InfoWindow({
